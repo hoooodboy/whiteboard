@@ -1,0 +1,73 @@
+.whiteboard-slide {
+  // width: 18.75%;
+  width: 14.58%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+}
+
+.scenelist {
+  flex: 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+
+  .scenelist-scenes {
+    flex: 1 0 1px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .scenelist-buttons {
+    flex: 0 0 auto;
+    // height: 72px;
+    margin: 0;
+    padding: 0 20px 20px 20px;
+
+    > button {
+      width: 100%;
+      padding: 16px 32px;
+      @include font-guide(default);
+      color: $white-color;
+      background: $primary-color-500;
+      border-radius: 8px;
+      border: none;
+
+      &:focus {
+        outline: transparent;
+      }
+    }
+  }
+
+  .slide-list-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+  }
+
+  @include responsive((small, medium, large)) {
+    .scenelist-scenes {
+      gap: 8px;
+      padding: 8px;
+    }
+
+    .scenelist-buttons {
+      padding: 0 8px 8px 8px;
+
+      > button {
+        padding: 12px 4px;
+        @include font-guide(small);
+        border-radius: 6px;
+      }
+    }
+  }
+}

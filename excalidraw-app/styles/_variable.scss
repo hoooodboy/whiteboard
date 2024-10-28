@@ -1,0 +1,87 @@
+$desktop-content-width: 1280px !default;
+
+$breakpoints: (
+  small: (
+    max-width: 360px,
+  ),
+  medium: (
+    min-width: 361px,
+    max-width: 700px,
+  ),
+  large: (
+    min-width: 701px,
+    max-width: $desktop-content-width,
+  ),
+) !default;
+
+// 컬러
+$primary-color-50: #f5f5ff !default;
+$primary-color-100: #e7e8fe !default;
+$primary-color-200: #d0d1fb !default;
+$primary-color-300: #a9adf9 !default;
+$primary-color-400: #8388f6 !default;
+$primary-color-500: #5c63f3 !default;
+$primary-color-600: #4a50c3 !default;
+$primary-color-700: #3a3e99 !default;
+$primary-color-800: #2b2e72 !default;
+$primary-color-900: #1b1d46 !default;
+
+// 그레이 컬러
+$gray-color-50: #fafafa !default;
+$gray-color-100: #f4f4f5 !default;
+$gray-color-200: #e4e4e7 !default;
+$gray-color-300: #d4d4d8 !default;
+$gray-color-400: #a1a1aa !default;
+$gray-color-500: #71717a !default;
+$gray-color-600: #52525b !default;
+$gray-color-700: #3f3f46 !default;
+$gray-color-800: #27272a !default;
+$gray-color-900: #18181b !default;
+
+// 악센트 컬러
+$accent-color-001: #f54260 !default;
+$accent-color-002: #fa7938 !default;
+$accent-color-003: #fad338 !default;
+$accent-color-004: #39c6b8 !default;
+$accent-color-005: #0acbf5 !default;
+$accent-color-006: #5c63f3 !default;
+$accent-color-007: #c161ff !default;
+$accent-color-008: #a37e6c !default;
+$accent-color-009: #a1a1aa !default;
+$accent-color-010: #fbc4ce !default;
+$accent-color-011: #fce99c !default;
+$accent-color-012: #b0e8e3 !default;
+$accent-color-013: #d0d1fb !default;
+$accent-color-014: #efd7fe !default;
+$accent-color-015: #e4e4e7 !default;
+
+// 성공 실패 컬러
+$state-color-error: #ff3e3e !default;
+$state-color-success: #12b76a !default;
+
+// 블랙엔화이트 컬러
+$white-color: #ffffff !default;
+$black-color: #000000 !default;
+
+// 배경 컬러
+$bg-primary-color-1: #69e4ff !default;
+$bg-primary-color-2: #5c63f3 !default;
+$bg-primary-color-3: #c161ff !default;
+$bg-primary-color-4: linear-gradient(
+  230deg,
+  #69e4ff -1.19%,
+  #5c63f3 35.95%,
+  #c161ff 111.37%
+) !default;
+
+// 링크 색
+$link-color: $gray-color-600 !default;
+$link-hover-color: $primary-color-500 !default;
+
+// 버튼 글씨
+$btn-font-weight: 600 !default;
+
+// 폰트 굵기
+$font-weight-bold: 700 !default;
+$font-weight-medium: 500 !default;
+$font-weight-regular: 400 !default;

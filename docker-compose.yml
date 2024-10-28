@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+
+  whiteboard:
+    build:
+      context: .
+      args:
+        - NODE_ENV=development
+    container_name: whiteboard
+    ports:
+      - "5104:3000"
+    restart: on-failure
+    stdin_open: true
+    healthcheck:
+      disable: true
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./:/opt/node_app
+
+
+  whiteboard-room:
+    container_name: whiteboard-room
+    build:
+      context: ../whiteboard-room
+    ports:
+      - "5001:80"

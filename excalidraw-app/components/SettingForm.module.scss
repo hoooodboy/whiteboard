@@ -1,0 +1,170 @@
+.SettingForm {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 640px;
+  text-align: left;
+  padding: 30px;
+  color: #444;
+  gap: 16px;
+
+  &:global(.dialog) {
+    overflow: auto;
+    max-height: calc(100vh - 20px);
+    max-height: calc(100dvh - 20px);
+  }
+
+  > h2 {
+    @include font-guide(large);
+    color: $primary-color-500;
+    font-weight: $font-weight-bold;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 16px 0;
+  }
+
+  .form-title {
+    @include font-guide(large);
+    font-weight: $font-weight-bold;
+    color: $gray-color-900;
+    text-align: center;
+  }
+
+  .video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    video {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 320 / 240;
+      object-fit: cover;
+
+      &:global(.full) {
+        max-width: 640px;
+      }
+    }
+  }
+
+  input[type="text"] {
+    @include font-guide(default);
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 20px;
+    background: url("/assets/images/wb-icons/select-expand-down-black.svg")
+        no-repeat right 0.8em center / 1.4em,
+      $white-color;
+    color: $black-color;
+    border-radius: 8px;
+    border: 1px solid $gray-color-200;
+
+    &:focus {
+      border: 1px solid $gray-color-200;
+    }
+  }
+
+  select {
+    /* Reset */
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    /* Personalize */
+    @include font-guide(default);
+    width: 100%;
+    padding: 16px 20px;
+    background: url("/assets/images/wb-icons/select-expand-down-black.svg")
+        no-repeat right 0.8em center / 1.4em,
+      $white-color;
+    color: $black-color;
+    border-radius: 8px;
+    border: 1px solid $gray-color-200;
+    cursor: pointer;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+
+    /* Remove IE arrow */
+    &::-ms-expand {
+      display: none;
+    }
+    /* Remove focus outline */
+    &:focus {
+      outline: none;
+    }
+    /* <option> colors */
+    option {
+      color: $black-color;
+      background-color: $white-color;
+    }
+  }
+
+  .devices {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .error {
+    color: red;
+  }
+
+  .buttons {
+    margin: 16px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    :global {
+      button {
+        @include font-guide(default);
+        font-weight: $font-weight-bold;
+        flex: 1 1;
+        padding: 16px 32px;
+        border-radius: 8px;
+        border-color: $primary-color-500;
+        color: $primary-color-500;
+
+        &:hover {
+          background-color: $gray-color-100;
+        }
+
+        &.btn-primary {
+          color: $white-color;
+
+          &:hover {
+            background-color: $accent-color-004;
+            color: $white-color;
+          }
+        }
+      }
+    }
+  }
+
+  @include responsive((small, medium, large)) {
+    gap: 8px;
+    padding: 10px;
+    .devices {
+      gap: 8px;
+    }
+    select {
+      padding: 8px 10px;
+    }
+
+    .buttons {
+      :global {
+        button {
+          @include font-guide(small);
+          padding: 8px 16px;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}

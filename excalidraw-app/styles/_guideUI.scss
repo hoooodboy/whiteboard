@@ -1,0 +1,131 @@
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 3px;
+  text-decoration: none;
+
+  background: $primary-color-500;
+  color: $white-color;
+  border-radius: 60px;
+  background: $white-color;
+  color: $black-color;
+  border: none;
+
+  cursor: pointer;
+
+  &-link {
+    background: transparent;
+  }
+
+  &-fill {
+    border: 1px solid $primary-color-500;
+  }
+
+  &-outline {
+    background: $white-color;
+    color: $black-color;
+    border: 1px solid $gray-color-300;
+  }
+
+  &-with-icon {
+    .wb-icon {
+      width: 24px;
+      height: 24px;
+      background: $black-color;
+    }
+  }
+
+  &-S {
+    @include font-guide(default);
+    font-weight: $font-weight-bold;
+    padding: 12px 20px;
+    gap: 4px;
+
+    &:has(.btn-with-icon) {
+      padding-left: 24px;
+    }
+  }
+
+  &-M {
+    @include font-guide(default);
+    font-weight: $font-weight-bold;
+    padding: 14px 16px;
+    gap: 8px;
+
+    &:has(.btn-with-icon) {
+      padding-left: 24px;
+    }
+  }
+
+  &-L {
+    @include font-guide(large);
+    font-weight: $font-weight-bold;
+    padding: 12px 30px;
+    gap: 10px;
+
+    &:has(.btn-with-icon) {
+      padding-left: 38px;
+    }
+  }
+
+  &:hover {
+    color: $primary-color-500;
+    .wb-icon {
+      background: $primary-color-500;
+    }
+  }
+
+  &-primary {
+    background: $primary-color-500;
+    color: $white-color;
+
+    &:hover {
+      color: $primary-color-500;
+      background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.16) 0%,
+          rgba(0, 0, 0, 0.16) 100%
+        ),
+        $primary-color-500;
+      .icon {
+        background: $primary-color-500;
+      }
+    }
+  }
+
+  &-gray {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2);
+    color: $white-color;
+
+    .wb-icon {
+      background: $white-color;
+    }
+
+    &:hover {
+      color: $white-color;
+      .wb-icon {
+        background: $white-color;
+      }
+    }
+  }
+
+  &-bg-trans-white {
+    background: transparent;
+    color: $white-color;
+    .wb-icon {
+      background: $white-color;
+    }
+
+    &:hover {
+      color: $white-color;
+      text-decoration: underline;
+      .wb-icon {
+        background: $white-color;
+      }
+    }
+  }
+}

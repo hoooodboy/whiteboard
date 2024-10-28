@@ -1,0 +1,237 @@
+@use "sass:math";
+
+// 글자 크기
+@mixin font-guide($size) {
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  @if $size == extra-small {
+    font-size: 12px;
+    font-style: normal;
+    line-height: 16px;
+  } @else if $size == small {
+    font-size: 14px;
+    font-style: normal;
+    line-height: 20px; /* 142.857% */
+  } @else if $size == default {
+    font-size: 16px;
+    font-style: normal;
+    line-height: 24px; /* 150% */
+    letter-spacing: -0.16px;
+  } @else if $size == middle {
+    font-size: 18px;
+    font-style: normal;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.36px;
+  } @else if $size == large {
+    font-size: 24px;
+    font-style: normal;
+    line-height: 32px; /* 133.333% */
+    letter-spacing: -0.48px;
+  } @else if $size == extra-large {
+    font-size: 32px;
+    font-style: normal;
+    line-height: 40px; /* 125% */
+    letter-spacing: -0.64px;
+  } @else {
+    @error "Unknown font size: #{$size}. Valid sizes are small, default, middle, large, extra-large.";
+  }
+}
+
+// input range cross-browser
+// Styling Cross-Browser Compatible Range Inputs with Sass
+// Github: https://github.com/darlanrod/input-range-sass
+// Author: Darlan Rod https://github.com/darlanrod
+// Version 1.5.3
+// MIT License
+
+$track-color: $gray-color-100 !default;
+$thumb-color: $primary-color-500 !default;
+
+$thumb-radius: 12px !default;
+$thumb-height: 15px !default;
+$thumb-width: 15px !default;
+$thumb-shadow-size: 0 !default;
+$thumb-shadow-blur: 0 !default;
+$thumb-shadow-color: rgba(0, 0, 0, 0) !default;
+$thumb-border-width: 0 !default;
+$thumb-border-color: #eceff1 !default;
+
+$track-width: 100% !default;
+$track-height: 12px !default;
+$track-shadow-size: 0 !default;
+$track-shadow-blur: 0 !default;
+$track-shadow-color: rgba(0, 0, 0, 0) !default;
+$track-border-width: 1px !default;
+$track-border-color: $gray-color-200 !default;
+
+$track-radius: 5px !default;
+$contrast: 0% !default;
+
+$ie-bottom-track-color: darken($track-color, $contrast) !default;
+
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color,
+    0 0 $shadow-size lighten($shadow-color, 5%);
+}
+
+@mixin track {
+  cursor: default;
+  height: $track-height;
+  transition: all 0.2s ease;
+  width: $track-width;
+}
+
+@mixin thumb {
+  @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+  background: $thumb-color;
+  border: $thumb-border-width solid $thumb-border-color;
+  border-radius: $thumb-radius;
+  box-sizing: border-box;
+  cursor: default;
+  height: $thumb-height;
+  width: $thumb-width;
+}
+
+@mixin input-range() {
+  -webkit-appearance: none;
+  background: transparent;
+  margin: math.div($thumb-height, 2) 0;
+  width: $track-width;
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+
+  &:focus {
+    outline: 0;
+
+    &::-webkit-slider-runnable-track {
+      background: lighten($track-color, $contrast);
+    }
+
+    &::-ms-fill-lower {
+      background: $track-color;
+    }
+
+    &::-ms-fill-upper {
+      background: lighten($track-color, $contrast);
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track;
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb;
+    -webkit-appearance: none;
+    margin-top: (
+      math.div((-$track-border-width * 2 + $track-height), 2) -
+        math.div($thumb-height, 2)
+    );
+  }
+
+  &::-moz-range-track {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    @include track;
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+    height: math.div($track-height, 2);
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &::-ms-track {
+    @include track;
+    background: transparent;
+    border-color: transparent;
+    border-width: math.div($thumb-height, 2) 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    background: $ie-bottom-track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: ($track-radius * 2);
+  }
+
+  &::-ms-fill-upper {
+    @include shadow(
+      $track-shadow-size,
+      $track-shadow-blur,
+      $track-shadow-color
+    );
+    background: $track-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: ($track-radius * 2);
+  }
+
+  &::-ms-thumb {
+    @include thumb;
+    margin-top: math.div($track-height, 4);
+  }
+
+  &:disabled {
+    &::-webkit-slider-thumb,
+    &::-moz-range-thumb,
+    &::-ms-thumb,
+    &::-webkit-slider-runnable-track,
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+      cursor: not-allowed;
+    }
+  }
+}
+
+// 반응형 처리
+@mixin responsive($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint in $fs-map {
+    @if $fs-breakpoint == null {
+      @content;
+    } @else {
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+        $min-width: map-get($fs-breakpoint, "min-width");
+        $max-width: map-get($fs-breakpoint, "max-width");
+        @if $min-width != null and $max-width != null {
+          @media screen and (min-width: $min-width) and (max-width: $max-width) {
+            @content;
+          }
+        } @else if $min-width != null {
+          @media screen and (min-width: $min-width) {
+            @content;
+          }
+        } @else if $max-width != null {
+          @media screen and (max-width: $max-width) {
+            @content;
+          }
+        } @else {
+          @error "Unknown breakpoint: #{$fs-breakpoint}.";
+        }
+      } @else {
+        @error "Unknown breakpoint: #{$fs-breakpoint}.";
+      }
+    }
+  }
+}

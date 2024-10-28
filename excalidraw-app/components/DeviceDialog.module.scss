@@ -1,0 +1,38 @@
+.WebRTCDialog {
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border: 1px solid $gray-color-200;
+  padding: 0;
+  z-index: 999;
+  color: #444;
+  gap: 10px;
+  border-radius: 8px;
+  background: $white-color;
+  box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
+
+  .closeBtn {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0;
+
+    :global(.wb-icon) {
+      background-color: $black-color;
+    }
+  }
+
+  > :global(.setting-form) {
+    padding: 24px;
+  }
+}

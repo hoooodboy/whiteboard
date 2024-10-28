@@ -1,0 +1,46 @@
+@import "./_variable.scss";
+
+:export {
+  primaryColor50: $primary-color-50;
+  primaryColor100: $primary-color-100;
+  primaryColor200: $primary-color-200;
+  primaryColor300: $primary-color-300;
+  primaryColor400: $primary-color-400;
+  primaryColor500: $primary-color-500;
+  primaryColor600: $primary-color-600;
+  primaryColor700: $primary-color-700;
+  primaryColor800: $primary-color-800;
+  primaryColor900: $primary-color-900;
+  grayColor50: $gray-color-50;
+  grayColor100: $gray-color-100;
+  grayColor200: $gray-color-200;
+  grayColor300: $gray-color-300;
+  grayColor400: $gray-color-400;
+  grayColor500: $gray-color-500;
+  grayColor600: $gray-color-600;
+  grayColor700: $gray-color-700;
+  grayColor800: $gray-color-800;
+  grayColor900: $gray-color-900;
+  accentColor001: $accent-color-001;
+  accentColor002: $accent-color-002;
+  accentColor003: $accent-color-003;
+  accentColor004: $accent-color-004;
+  accentColor005: $accent-color-005;
+  accentColor006: $accent-color-006;
+  accentColor007: $accent-color-007;
+  accentColor008: $accent-color-008;
+  accentColor009: $accent-color-009;
+  accentColor010: $accent-color-010;
+  accentColor011: $accent-color-011;
+  accentColor012: $accent-color-012;
+  accentColor013: $accent-color-013;
+  accentColor014: $accent-color-014;
+  accentColor015: $accent-color-015;
+  stateColorError: $state-color-error;
+  stateColorSuccess: $state-color-success;
+  whiteColor: $white-color;
+  blackColor: $black-color;
+
+  primaryColor: $primary-color-500;
+  componentButtonFontWeight: $btn-font-weight;
+}

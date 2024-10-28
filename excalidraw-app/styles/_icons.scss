@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+.wb-icon {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  background: $white-color;
+  mask-size: 100% 100%;
+
+  &-backward {
+    mask-image: url("/assets/images/wb-icons/backward.svg");
+  }
+
+  &-forward {
+    mask-image: url("/assets/images/wb-icons/forward.svg");
+  }
+
+  &-control {
+    mask-image: url("/assets/images/wb-icons/control.svg");
+  }
+
+  &-mic-on {
+    mask-image: url("/assets/images/wb-icons/mic-on.svg");
+  }
+
+  &-mic-off {
+    mask-image: url("/assets/images/wb-icons/mic-off.svg");
+  }
+
+  &-video-on {
+    mask-image: url("/assets/images/wb-icons/video-on.svg");
+  }
+
+  &-video-off {
+    mask-image: url("/assets/images/wb-icons/video-off.svg");
+  }
+
+  &-play {
+    mask-image: url("/assets/images/wb-icons/play.svg");
+  }
+
+  &-pause {
+    mask-image: url("/assets/images/wb-icons/pause.svg");
+  }
+
+  &-record {
+    mask-image: url("/assets/images/wb-icons/record.svg");
+    &-on {
+      mask-image: url("/assets/images/wb-icons/record.svg");
+      background: red !important;
+    }
+
+    &-off {
+      mask-image: url("/assets/images/wb-icons/record.svg");
+    }
+  }
+
+  &-record {
+    mask-image: url("/assets/images/wb-icons/record.svg");
+  }
+
+  &-sound {
+    mask-image: url("/assets/images/wb-icons/sound.svg");
+  }
+
+  &-sign-out {
+    mask-image: url("/assets/images/wb-icons/sign-out.svg");
+  }
+
+  &-close {
+    mask-image: url("/assets/images/wb-icons/close.svg");
+  }
+}
+
+@keyframes hover-color {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

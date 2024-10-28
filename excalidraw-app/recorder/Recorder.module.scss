@@ -1,0 +1,95 @@
+.Recorder {
+  // position: absolute;
+  // left: 20px;
+  // right: 20px;
+  // bottom: 20px;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+
+  // box-sizing: border-box;
+  background-color: $white-color;
+  // box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.17),
+  //   0px 0px 3px 0px rgba(0, 0, 0, 0.08), 0px 7px 14px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  // padding: 0.5rem;
+  // transition: box-shadow 0.5s ease-in-out;
+
+  // background-color: #fff;
+  // border: 2px solid #ddd;
+  // border-radius: 10px;
+  padding: 10px 18px 10px 10px;
+  z-index: 999;
+  color: #444;
+  gap: 10px;
+
+  .ControlButtonBox {
+    display: flex;
+    align-items: center;
+    gap: 0;
+
+    :global {
+      button {
+        border-width: 0;
+        background-color: transparent;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+
+        &.btn {
+          padding: 0 !important;
+
+          .wb-icon {
+            background: $primary-color-500;
+          }
+
+          &:hover {
+            .wb-icon {
+              background: linear-gradient(
+                -45deg,
+                $primary-color-500,
+                $accent-color-004,
+                $primary-color-100
+              );
+              background-size: 400% 400%;
+              // background: $primary-color-800;
+              animation: hover-color 0.6s 0.1s cubic-bezier(0, 0, 0.18, 0.99)
+                infinite alternate;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .ControlRangeBox {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+
+    input {
+      width: 100%;
+
+      &[type="range"] {
+        @include input-range();
+        // background: $gray-color-100;
+        // border-radius: 8px;
+        // outline: 1px solid $gray-color-200;
+        // transition: background 450ms ease-in;
+        // -webkit-appearance: none;
+        // accent-color: $primary-color-500;
+      }
+    }
+  }
+
+  .VideoBox {
+    display: none;
+    width: 100px;
+    video {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

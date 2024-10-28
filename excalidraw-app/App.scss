@@ -1,0 +1,177 @@
+@import "./styles/_common.scss";
+
+html {
+  scrollbar-gutter: auto;
+}
+
+.excalidraw-app {
+  .excalidraw {
+    // 헬프 버튼
+    button.help-icon {
+      display: none;
+    }
+
+    // 라이브러리 버튼
+    .sidebar-trigger__label-element {
+      display: none;
+    }
+
+    // 좌상단 메뉴버튼
+    .App-menu_top__left {
+      button.dropdown-menu-button {
+        display: none;
+      }
+    }
+
+    // 기본 유저리스트 UserList: PC, UserList-Wrapper: MO
+    .UserList,
+    .UserList-Wrapper {
+      display: none;
+    }
+
+    // 모바일 메뉴 숨기기
+    .App-bottom-bar {
+      display: none;
+    }
+
+    //툴바 하단 PC
+    .FixedSideContainer_side_top {
+      top: initial;
+      bottom: 16px;
+    }
+    .HintViewer {
+      top: -100%;
+    }
+
+    // 툴바 하단 MO
+    .mobile-misc-tools-container {
+      top: initial;
+      bottom: calc(5rem - var(--editor-container-padding));
+    }
+
+    &.excalidraw--mobile {
+      .App-top-bar {
+        flex-direction: column-reverse;
+      }
+      .HintViewer {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .whiteboard-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+
+    .whiteboard-header {
+      height: 80px;
+      background: #5c63f3; // $primary-color-500
+      display: flex;
+      padding: 0px 40px;
+      justify-content: space-between;
+      align-items: center;
+
+      .whiteboard-info {
+        display: flex;
+        align-items: center;
+        gap: 0;
+
+        .room-author,
+        .room-name {
+          @include font-guide(middle);
+          color: $white-color;
+
+          &::after {
+            display: inline-block;
+            content: "";
+            width: 1px;
+            height: 12px;
+            background: $white-color;
+            margin: 0 24px;
+          }
+
+          &:last-child {
+            &::after {
+              content: none;
+            }
+          }
+        }
+      }
+
+      .whiteboard-controls {
+        min-width: 50%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .btn {
+          padding: 16px;
+        }
+
+        height: 80px;
+      }
+
+      .whiteboard-actions {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 8px;
+
+        .btn {
+          @include font-guide(default);
+        }
+      }
+    }
+
+    .whiteboard-body {
+      display: flex;
+      flex: 1;
+      flex-direction: row;
+      width: 100%;
+      height: calc(100% - 80px);
+
+      background: #f4f4f5; // $gray-color-100
+
+      .whiteboard-slide {
+        // width: 18.75%;
+        width: 14.58%;
+        max-width: 360px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .whiteboard-main {
+        position: relative;
+        flex: 1;
+
+        .excalidraw .App-menu__left {
+          bottom: 55px;
+        }
+      }
+
+      .whiteboard-webrtc {
+        width: 14.58%;
+        max-width: 280px;
+        height: 100%;
+      }
+    }
+
+    @include responsive((small, medium, large)) {
+      .whiteboard-header {
+        height: 40px;
+
+        .whiteboard-controls {
+          height: 40px;
+        }
+      }
+    }
+  }
+}
